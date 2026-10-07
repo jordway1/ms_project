@@ -1,0 +1,33 @@
+---
+title: "Discussion"
+---
+
+The purpose of this study was to demonstrate the potential of standards-based survey data to identify associations between PE knowledge and self-reported physical activity behavior among high-school students. Leveraging a dataset that included SHAPE standards-based assessment items and YRBS self-reported behavior metrics, we investigated the relationship between standards-based PE knowledge scores and three physical behavior metrics: PA Minutes per Day, PA Days per Week, and Fitness Cohort. Across all three measures, increased PE knowledge scores were associated with increased probabilities of higher levels of physical activity, even after controlling for demographic variables. While the effect sizes of these findings were small, these findings support the broader argument that PE knowledge may play a meaningful role in promoting positive physical behaviors in students.
+
+Across the three outcome measures, Standard 2, which assesses students' knowledge of fitness concepts, was the most consistent predictor of physical activity behavior out of the three knowledge-based standards. This suggests that students who have a stronger grasp of fitness concepts are more likely to engage in physical activity, even when controlling for their demographic background. From the standpoint of curriculum design, and given the weak explanatory power of these models, this would tentatively support the prioritization of teaching fitness concepts over the other PE knowledge-based standards.
+
+Standard 3 had a less straightforward relationship with the three outcome measures. It was a significant predictor of physical behavior in the PA Days model and the unadjusted fitness cohort model, but was not significant in the adjusted fitness cohort model or the PA Minutes models. Since Standard 3 assesses the social component of physical activity in students, it's possible that students whose social lives involve physical activity may be more likely to engage in physical activity more often, but not necessarily at a higher intensity.
+
+Standard 4, which assesses the degree to which personal identity relates to movement, had either insignificant or significantly negative relationships across the three outcome variables. This could be interpreted as a genuine disconnect between personal identity around physical activity and their actual behavior, or it could be seen as an unreliable result of models with weak explanatory power.
+
+Demographic variables, particularly sex and poverty level, were consistently significant predictors of physical activity across all three outcome measures, more than the knowledge-based standards. Male students were consistently associated with higher levels of physical activity across every model.
+
+Poverty level showed an interesting but somewhat unexpected pattern. Students belonging to the "Mid-High Poverty" class were consistently associated with lower levels of physical activity, while the "Mid-Low Poverty" class was associated with higher activity levels than even the "Low Poverty" class in the fitness cohort and binomial models. It's difficult to draw conclusions based on this unexpected result, and further investigation with a more representative sample would be needed to assess whether this is a meaningful relationship or an artifact of the data.
+
+Latino students were negatively associated with physical activity in the binomial model, but that relationship did not reach significance in the other models. Race generally did not reach significance in the models when controlling for other demographic variables. The limited racial diversity of the sample limits the conclusions that can be drawn about the relationship between race and physical activity.
+
+There are several important limitations of this study that should be considered when interpreting these findings. First, model fit was consistently poor across all outcome measures, with low McFadden's $R^2$ and AUC values. While variables still reached significance, SHAPE knowledge standards explain only a small portion of the variance in physical activity behavior. There are likely many other factors that influence students' physical behavior that are not captured in this dataset.
+
+Second, all physical activity metrics were based on self-report, which are subject to response bias. The inconsistency between PA Days and PA Minutes, noted in the Results section, demonstrates that students may not be interpreting or responding to these questions consistently. 
+
+Third, the sample is not representative of the broader population of US students. The vast majority of students were white, from a higher socioeconomic class, and located in a single state (Indiana). This limits the generalizability of any findings.
+
+Fourth, the knowledge assessment items were originally developed under the 2004 SHAPE Standards framework, then mapped onto the appropriate umbrella standard under the current four-standard framework. This mapping may introduce some uncertainty into the interpretation of scores by standard.
+
+The findings of this study, while modest, demonstrate the potential of standards-based survey data to meaningfully answer questions about the relationship between PE knowledge and physical activity behavior. This study should be viewed as a proof-of-concept to motivate further research, rather than as presenting definitive results. 
+
+A more representative study, that includes broader participation among socioeconomic class, race, and location, would allow for more generalizable conclusions about the relationship between PE knowledge and physical activity behavior. 
+
+Future research would also benefit from more reliable outcome measures. The inconsistency between self-reported PA Days and PA Minutes demonstrates the unreliability of students' reporting of these metrics, and a future study would benefit from taking steps to mitigate these inconsistencies at the time of survey. Further, an assessment based on the current four-standard framework would strengthen the results of the study. 
+
+The goal of this line of research is to provide PE educators with an empirical framework for curriculum design. If larger-scale studies are able to confirm some of the results in this study while addressing the previously-mentioned limitations, such research could serve to help design more standardized, evidence-based PE programming to promote better health outcomes for students.

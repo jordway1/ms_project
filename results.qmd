@@ -1,0 +1,407 @@
+---
+title: "Results"
+---
+```{r, include = FALSE, message = FALSE, warning = FALSE, echo = FALSE}
+source('data_setup.R')
+```
+
+## Sample Characteristics and Demographics
+The sample consisted of 1504 students across 19 classrooms in 9 Indiana secondary schools. Respondents were primarily students early in their secondary education, with the vast majority of respondents being ninth-grade students $(84\%;n=1265)$, with smaller cohorts of grades 10 $(n=82)$, 11 $(n=16)$, and 12 $(n=21)$ also included. Grade level was not reported by 120 students. Correspondingly, the age distribution was centered at age 14 $(n=976)$, followed by 15 $(n=299)$, 13 $(n=157)$, 16 $(n=43)$, 17 $(n=22)$ and 18 $(n=7)$. 
+
+Respondents were distributed evenly between sexes, with 765 reporting female and 747 reporting male. The majority of respondents were White $(n=1011)$, followed by Black $(n=237)$, Asian $(n=49)$, Native American $(n=33)$, and Native Hawaiian $(n=8)$. Due to small sample sizes, Asian, Native American, and Native Hawaiian respondents were combined into the "Other Race" category. 166 respondents did not report race. Notably, 64% of respondents come from schools associated with higher socioeconomic status, either belonging to the "low poverty" or "mid-low" poverty group, which may limit the generalizability of any findings. The "mid-high" poverty group contained significantly higher proportions of students who reported their race as black or unknown. 
+
+```{r, echo=FALSE}
+#| fig-cap: "Race Composition by Poverty Level"
+ipe_data %>%
+  mutate(poverty = str_to_title(poverty),
+    poverty = factor(poverty, levels = c("Low Poverty", "Mid-Low Poverty", 
+    "Mid-High Poverty")),
+    race_2 = str_to_title(race_2)) %>%
+  ggplot(aes(poverty)) +
+  geom_bar(aes(fill = race_2)) +
+  scale_fill_jama(na.value = "gray50") +
+  labs(x = "Poverty Level", y = "Frequency", 
+       fill = "Race") +
+  theme(axis.text.x = element_text(angle = 20, vjust = .8), 
+        text = element_text(family = "serif"))
+```
+
+## Descriptive Statistics
+
+### Distributions of Test Scores
+
+Assessment scores varied across standards. Standards 2 and 3 were approximately normally distributed, while Standard 4 was significantly skewed left, with most students scoring in the upper range (see Figure 4.2). Standard 4 had the highest median score (71.4%), followed by the overall score (61.5%), Standard 2 (57.1%), and Standard 3 (50%) (see Table 4.1). Visual inspection of distribution highlights the disparity in number of assessment items across standards (21 items for Standard 2, 4 for Standard 3, 14 for Standard 4), which affects the resolution and potentially the reliability of each distribution.
+
+```{r, echo=FALSE, message=FALSE}
+#| fig-cap: "Distribution of Test Scores by Standard"
+
+overall_plot <- ipe_data %>%
+ ggplot(aes(PT_Percentage)) +
+ geom_histogram(fill = "steelblue", color = "black") +
+ labs(title = "Overall ", x = "Score", y = "Frequency")
+
+standard_2_plot <- ipe_data %>%
+ ggplot(aes(s2_pct)) +
+ geom_histogram(fill = "steelblue", color = "black") +
+ labs(title = "Standard 2", x = "Score", y = "")
+
+standard_3_plot <- ipe_data %>%
+ ggplot(aes(s3_pct)) +
+ geom_histogram(fill = "steelblue", color = "black") +
+ labs(title = "Standard 3", x = "Score", y = "Frequency")
+standard_4_plot <- ipe_data %>%
+ ggplot(aes(s4_pct)) +
+ geom_histogram(fill = "steelblue", color = "black") +
+ labs(title = "Standard 4", x = "Score", y = "")
+
+grid <- plot_grid(overall_plot, standard_2_plot, standard_3_plot, standard_4_plot, label_size = 12) 
+
+plot_grid(grid, ncol=1, rel_heights = c(.1, 1))
+```
+
+```{r, echo=FALSE, message=FALSE}
+tibble(
+  Standard = c("Overall", "Standard 2", "Standard 3", "Standard 4"),
+  Average = c(mean(ipe_data$PT_Percentage, na.rm = TRUE),
+              mean(ipe_data$s2_pct, na.rm = TRUE),
+              mean(ipe_data$s3_pct, na.rm = TRUE),
+              mean(ipe_data$s4_pct, na.rm = TRUE)),
+  `First Quartile` = c(quantile(ipe_data$PT_Percentage, .25, na.rm = TRUE),
+                       quantile(ipe_data$s2_pct, .25, na.rm = TRUE),
+                       quantile(ipe_data$s3_pct, .25, na.rm = TRUE),
+                       quantile(ipe_data$s4_pct, .25, na.rm = TRUE)),
+  Median = c(median(ipe_data$PT_Percentage, na.rm = TRUE),
+             median(ipe_data$s2_pct, na.rm = TRUE),
+             median(ipe_data$s3_pct, na.rm = TRUE),
+             median(ipe_data$s4_pct, na.rm = TRUE)),
+  `Third Quartile` = c(quantile(ipe_data$PT_Percentage, .75, na.rm = TRUE),
+                       quantile(ipe_data$s2_pct, .75, na.rm = TRUE),
+                       quantile(ipe_data$s3_pct, .75, na.rm = TRUE),
+                       quantile(ipe_data$s4_pct, .75, na.rm = TRUE))
+) %>%
+  mutate(across(where(is.numeric), ~ round(.x, 3))) %>%
+  kable(col.names = c("Standard", "Mean", "Q1", "Median", "Q3"),
+        caption = "Summary Statistics for Test Scores",
+        booktabs = TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "striped"))
+```
+
+
+### Distributions of PA Variables
+
+Students generally reported high levels of physical activity. Figure 4.3 shows the distributions of each physical activity metric. The distribution of PA Days per Week was left-skewed, with a median of 5 days and a most common response of 7 days per week. Similarly, PA Minutes per Day was left skewed, with the most common response being 60+ minutes per day. Strength Days showed a different pattern, with a right-skewed distribution, a median of 3 days, and a most common response of 0 days. 
+
+The majority of students fell into the "Medium Fitness" cohort $(n=1054)$. A substantial number of students belonged to the "High Fitness" cohort $(n=376)$, though only a small number of students belonged to the "Low Fitness" cohort $(n=74)$. The low sample size of the "Low Fitness" category limits the statistical power of analyses involving this group.
+
+```{r, echo=FALSE, warning=FALSE}
+#| fig-cap: "Physical Activity Metric Distributions"
+
+pa_days_dist <- ipe_data %>%
+  group_by(PA_Days) %>%
+  summarize(Frequency = n()) %>%
+  ggplot(aes(PA_Days, Frequency)) +
+  geom_col(fill = "steelblue", color = "black") +
+  labs(title = "PA Days",x="")
+
+pa_mins_dist <- ipe_data %>% 
+  filter(`PA Minutes per day` != "-") %>%
+  group_by(`PA Minutes per day`) %>%
+  summarize(Frequency = n()) %>%
+  ggplot(aes(`PA Minutes per day`, Frequency)) +
+  geom_col(fill = "steelblue", color = "black") +
+  labs(title = "PA Minutes per Day",x="", y="")
+
+str_days_dist <- ipe_data %>%
+  group_by(Strength_Days) %>%
+  summarize(Frequency = n()) %>%
+  ggplot(aes(Strength_Days, Frequency)) +
+  geom_col(fill = "steelblue", color = "black") +
+  labs(title = "Strength Days", x="")
+
+fitness_dist <- ipe_data %>%
+  group_by(fitness) %>%
+  summarize(Frequency = n()) %>%
+  mutate(fitness = factor(str_to_title(str_remove(fitness, " fitness")), 
+                        levels = c("Low", "Medium", "High"))) %>%
+  ggplot(aes(fitness, Frequency)) +
+  geom_col(fill = "steelblue", color = "black") +
+  labs(title = "Fitness Level", x = "",y="")
+
+pa_dist_grid <- plot_grid(pa_days_dist, pa_mins_dist, str_days_dist, fitness_dist)
+plot_grid(title, pa_dist_grid, ncol=1, rel_heights = c(.1, 1))
+```
+
+### PA Days and PA Minutes per Day Inconsistency
+
+Students generally reported high levels of physical activity. The median reported days of physical activity was 5, and most students reported 40+ minutes per day of physical activity. There was, however, a notable discrepancy between these statistics. A student who reports an average of 60+ minutes of physical activity per day should also report 7 days of physical activity per week, by definition. While students did report higher average minutes of daily physical activity as they reported higher days of physical activity per week, there was inconsistency in how these metrics were reported. For example, 19 students reported both 0 days of physical activity per week, and an average of 60+ minutes of physical activity per day. The plot of the distribution of PA Minutes per Day by reported PA Days per Week (Figure 4.4) makes this inconsistency clear. 
+
+```{r, echo=FALSE, message=FALSE}
+#| fig-cap: "Proportional PA Minutes Distribution by PA Days"
+
+ipe_data %>%
+  filter(!is.na(`PA Minutes per day`) & !is.na(PA_Days)) %>% 
+  rename('PA Days' = PA_Days) %>%
+  ggplot(aes(`PA Minutes per day`)) +
+  geom_bar(aes(y=after_stat(prop), group=1),
+    fill = "steelblue", color = "black", width = .8) +
+  facet_wrap(~`PA Days`, labeller = label_both) +
+  labs(y = "Proportion")
+```
+
+## Exploratory Findings
+
+### Correlation Between Scores and Outcome Variables
+
+Assessment scores generally correlated positively with physical activity across all three outcome metrics, as shown by Figure 4.5. Students in the High Fitness cohort scored higher than the Medium Fitness cohort, which scored higher than the Low Fitness cohort across most standards. The one exception being Standard 3, where the Low Fitness cohort outperformed Medium Fitness. The small sample size of the Low Fitness cohort ($n=74$) should be considered when interpreting this result.
+
+A similar positive relationship was observed between test scores and PA Days per Week. Students who reported higher numbers of physically active days per week also tended to score higher across each standard. Unexpectedly, there is a marked decline in scores between students who report 6 and 7 PA Days per Week. 
+
+The relationship between PA Minutes per Day and test scores was also positive across each standard. There is a notable jump in scores between students who report less than 20 minutes per day and students who report 20-40 minutes, with scores remaining stable across the higher activity categories. This pattern motivated the dichotomization of this variable, as mentioned in the Methods section.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+#| fig-cap: "Correlation Between Scores and PA Metrics"
+
+fitness_cor <- ipe_data %>%
+  mutate(fitness = factor(str_to_title((str_remove(fitness, " fitness"))), levels = c("Low", "Medium", "High"))) %>%
+  group_by(fitness) %>%
+  summarize(Total = mean(PT_Percentage),
+            Standard_2 = mean(s2_pct),
+            Standard_3 = mean(s3_pct),
+            Standard_4 = mean(s4_pct)) %>%
+  pivot_longer(
+    cols = c(Total, Standard_2, Standard_3, Standard_4),
+    names_to = "Standard",
+    values_to = "Score"
+  ) %>%
+  ggplot(aes(fitness,
+             Score,
+             color = Standard,
+             group = Standard)) +
+  ylim(0.4,0.75) +
+  geom_point() +
+  geom_line() +
+  labs(title = "Fitness Level")
+
+pa_day_cor <- ipe_data %>%
+  group_by(PA_Days) %>%
+  summarize(Total = mean(PT_Percentage),
+            Standard_2 = mean(s2_pct),
+            Standard_3 = mean(s3_pct),
+            Standard_4 = mean(s4_pct)) %>%
+  pivot_longer(
+    cols = c(Total, Standard_2, Standard_3, Standard_4),
+    names_to = "Standard",
+    values_to = "Score"
+  ) %>%
+  ggplot(aes(PA_Days,
+             Score,
+             color = Standard,
+             group = Standard)) +
+  geom_point() +
+  ylim(0.4,0.75) +
+  geom_line() +
+  labs(title = "PA Days")
+
+pa_min_cor <- ipe_data %>%
+  filter(!is.na(`PA Minutes per day`)) %>%
+  group_by(`PA Minutes per day`) %>%
+  summarize(Total = mean(PT_Percentage),
+            Standard_2 = mean(s2_pct),
+            Standard_3 = mean(s3_pct),
+            Standard_4 = mean(s4_pct)) %>%
+  pivot_longer(
+    cols = c(Total, Standard_2, Standard_3, Standard_4),
+    names_to = "Standard",
+    values_to = "Score"
+  ) %>%
+  ggplot(aes(`PA Minutes per day`,
+             Score,
+             color = Standard,
+             group = Standard)) +
+  geom_point() +
+  geom_line() +
+  ylim(0.4,0.75) +
+  labs(title = "PA Minutes")
+
+legend <- get_legend(
+  fitness_cor +
+    theme(legend.position = "bottom", legend.title = element_blank())
+)
+
+fitness_cor_nl <- fitness_cor + theme(legend.position = "none")
+pa_day_cor_nl  <- pa_day_cor  + theme(legend.position = "none", axis.title.y = element_blank())
+pa_min_cor_nl  <- pa_min_cor  + theme(legend.position = "none", axis.title.y = element_blank())
+
+plots <- plot_grid(
+  fitness_cor_nl,
+  pa_day_cor_nl,
+  pa_min_cor_nl,
+  ncol = 3,
+  align = "hv"
+)
+
+final_plot <- plot_grid(
+  plots,
+  legend,
+  ncol = 1,
+  rel_heights = c(1, 0.1)
+)
+
+plot_grid(
+   title,
+   final_plot,
+   ncol = 1,
+   rel_heights = c(0.1, 1)
+)
+```
+
+### PE days and PA Days
+
+```{r, include=FALSE}
+pe_pa_chisq <- table(ipe_data$PE_Days, ipe_data$PA_Days) %>% chisq.test()
+pe_pa_cramerv <- table(ipe_data$PE_Days, ipe_data$PA_Days) %>% cramerV()
+```
+
+To examine whether the number of PE Days per Week was associated with activity levels, we compared the distributions of PE Days across each level of PA Days per Week. Students tend to report either 3 or 5 days per week of PE classes, with no discernible pattern across reported days of physical activity. While a chi-square test indicated a statistically significant association ($\chi^2 =76.57, p < 0.001$), the effect size was negligible (Cramér's $V=0.101$). This suggests that the raw number of days of PE per week has little impact on the number of days that a student reports being physically active.
+
+```{r, echo=FALSE, warning=FALSE}
+#| fig-cap: "Distribution of PE Days by PA Days"
+
+ipe_data %>%
+  filter(!is.na(PA_Days), !is.na(PE_Days)) %>%
+  group_by(PA_Days, PE_Days) %>%
+  summarize(n = n(), .groups = "drop") %>%
+  group_by(PA_Days) %>%
+  mutate(prop = n / sum(n)) %>%
+  ggplot(aes(PE_Days, prop)) +
+  geom_col(color = "black", fill = "steelblue", width = .7) +
+  facet_wrap(~PA_Days, labeller = label_both) +
+  labs(
+       y = "Proportion", 
+       x = "PE Days")
+```
+
+
+## Model Results
+
+### PA Minutes Threshold
+
+A logistic regression was fit to examine the association between the overall standardized assessment scores and the probability of a student exceeding the sedentary threshold, as measured by PA Minutes per Day (Table 4.2). The standardized, overall assessment score was statistically significant $(p=0.001)$, which indicates that higher scores are associated with larger odds of a student exceeding the 20-minute sedentary threshold. However, this model offers little explanatory power, with an AUC of 0.586, and McFadden's $R^2$ of 0.01. No overdispersion was detected in this model. According to this model, an increase of one standard deviation of the overall score is associated with a 1.30-fold increase, or a 30% increase, in the odds of exceeding the 20 minute sedentary threshold. The corresponding 95% confidence interval for the odds ratio is [1.11,1.54]. 
+
+When standardized assessment scores separated by standard were modeled against the same sedentary threshold variable, only Standard 2 had a significant predictor ($p=0.004$). Standards 3 and 4 were not significant predictors ($p=0.893, p=0.634$, respectively). Model fit remained poor with McFadden's $R^2 = 0.014$ and an AUC of 0.590, consistent with the overall score model. According to this model, an increase of one standard deviation of the Standard 2 score corresponds to a 1.41-fold increase in the odds. The corresponding 95% confidence interval for the odds ratio is [1.12, 1.79].
+
+When demographic covariates were added, the overall score was only marginally significant $(p<0.1)$ and decreased in magnitude. Standard 2 assessment scores remained significant at the $p<.05$ threshold. Among the demographic variables, Sex was marginally significant $(p<0.1)$ and Poverty Level was highly significant $(p<0.01)$. Males were associated with higher odds of surpassing the sedentary threshold, and belonging to the "Mid-High Poverty" class was negatively associated with active behavior, compared to the baseline "Low Poverty" class. Model fit remained modest across all four models, with McFadden's $R^2$ increasing to 0.034 and AUC to 0.643 with the addition of demographic variables. According to this model, which includes covariates and scores separated by standard, an increase in one standard deviation of the Standard 2 score corresponds to a 1.35-fold increase in the odds. The corresponding 95% confidence interval for the odds ratio is [1.06, 1.72].
+
+```{r, results='asis',echo=FALSE,warning=FALSE,message=FALSE}
+ipe_data_2 <- ipe_data %>% filter(!is.na(active_daily)) # just dropping the 3 NAs
+
+lgm1 <- glm(active_daily ~ overall_pct_std, 
+                      data = ipe_data_2, 
+                      family = "binomial")          
+lgm2 <- glm(active_daily ~ s2_pct_std + s3_pct_std + s4_pct_std, 
+                      data = ipe_data_2, 
+                      family = "binomial")
+
+  
+#performance::check_overdispersion(lgm1)
+#roc(ipe_data_2$active_daily, lgm1$fitted.values, plot = TRUE)
+#pR2(lgm1)
+#pR2(lgm2)
+#roc(ipe_data_2$active_daily, lgm2$fitted.values, plot = TRUE)
+
+lgdm1 <- glm(active_daily ~ overall_pct_std + Sex + poverty + race_2 + Latino_YN, data = ipe_data_2, family = "binomial")
+
+lgdm2 <- glm(active_daily ~ s2_pct_std + s3_pct_std + s4_pct_std + Sex + poverty + race_2 + Latino_YN, data = ipe_data_2, family = "binomial")
+#pR2(lgdm1)
+#pR2(lgdm2)
+#roc(lgdm2$y, lgdm2$fitted.values, plot = TRUE)
+
+stargazer(lgm1, lgm2, lgdm1, lgdm2,
+          type = "latex",
+          title = "Logistic Regression: PA Minutes Threshold",
+          dep.var.labels = "Active Daily (>20 min)",
+          covariate.labels = c("Overall Score", "Standard 2", "Standard 3", "Standard 4", "Sex", "Mid-Low Poverty", "Mid-High Poverty", "Other Race", "Unknown Race", "White", "Latino"),
+          p.auto = FALSE,
+          header = FALSE,
+          add.lines = list(
+            c("McFadden's R²", "0.010", "0.014", "0.031", "0.035"),
+            c("AUC", "0.586", "0.590", "0.639", "0.643")
+          ),
+          column.labels = c("Overall", "Standards", "Overall and Covariates", "Standards and Covariates"),
+          notes = "Standard errors in parentheses.")
+```
+
+
+### PA Days per Week
+
+As overdispersion was detected in binomial models, a quasi-binomial regression model was fit to examine the association between the same assessment scores and physical activity, this time measured by self-reported physically active days per week (Table 4.3). When fit as the sole predictor, overall score was highly significant $(p<0.01)$. Scoring higher overall on the knowledge-based PE exam is associated with higher odds that a student will be active on a given day. According to this model, an increase by one standard deviation in the overall score is associated with a 1.16-fold, or a 16% increase, in the odds that a student was physically active on any given day of the week. The associated 95% confidence interval for the odds ratio is [1.09, 1.24].
+
+When evaluating the association between individual standards and PA Days, both Standard 2 and Standard 3 were significant ($p<0.05, p<0.01$, respectively). Standard 4 was not significant, and its coefficient was slightly negative. The magnitude of the association of Standard 3 was slightly larger than that of Standard 2. According to this model, an increase by one standard deviation in a student's score on Standard 3 is associated with a 1.13-fold increase in the odds that a student was physically active on any given day of the week. The corresponding 95% confidence interval of the odds ratio is [1.05, 1.22].
+
+When demographic variables were added, overall scores remained a significant predictor, as well as Standard 2 and Standard 3 assessment scores. According to the model that includes covariates and scores by standard, an increase by one standard deviation in a student's score for Standard 2 and Standard 3 are associated with a 1.12-fold and a 1.09-fold increase in the odds that a student is physically active on a given day, respectively. The associated 95% confidence intervals for the odds ratios for Standard 2 and Standard 3 are [1.02, 1.22] and [1.01, 1.18], respectively. Sex, poverty level, and whether or not a student was Latino were all significant predictors. Males were associated with higher odds of physical activity, and Latino students were  associated with lower odds of physical activity. Notably, belonging to the "Mid-Low Poverty" class was associated with higher odds of physical activity, higher than both the "Mid-High Poverty" and "Low Poverty" classes.
+
+```{r, results='asis',echo=FALSE,warning=FALSE,message=FALSE}
+ipe_data_3 <- ipe_data %>% filter(!is.na(PA_Days)) # Removing 6 missing obs.
+
+bm1 <- glm(cbind(PA_Days, 7-PA_Days) ~ overall_pct_std,
+                      data = ipe_data_3,
+                      family = "quasibinomial")
+
+bm2 <- glm(cbind(PA_Days, 7-PA_Days) ~ s2_pct_std + s3_pct_std + s4_pct_std, data = ipe_data_3, family = "quasibinomial")
+
+bm3 <- glm(cbind(PA_Days, 7-PA_Days) ~ overall_pct_std + Sex + poverty + race_2 + Latino_YN,
+                      data = ipe_data_3,
+                      family = "quasibinomial")
+bm4 <- glm(cbind(PA_Days, 7-PA_Days) ~ s2_pct_std + s3_pct_std + s4_pct_std + Sex + poverty + race_2 + Latino_YN, data = ipe_data_3, family = "quasibinomial")
+
+stargazer(bm1, bm2, bm3, bm4,
+          type = "latex",
+          title = "Binomial Regression: PA Days per Week",
+          dep.var.labels = "PA Days per Week (0-7)",
+          covariate.labels = c("Overall Score", "Standard 2", "Standard 3", "Standard 4", "Sex", "Mid-Low Poverty", "Mid-High Poverty", "Other Race", "Unknown Race", "White", "Latino"),
+          column.labels = c("Overall", "Standards", "Overall and Covariates", "Standards and Covariates"),
+          p.auto = FALSE,
+          header = FALSE,
+          notes = "Standard errors in parentheses.")
+```
+
+
+
+### Fitness Cohorts
+
+A logistic regression was fit to model the relationship between assessment scores and the probability of students meeting physical activity recommendations, and thus belonging to the "High Fitness" cohort (Table 4.4). When fit as the only predictor, overall score had a significant $(p<0.05)$ positive relationship with the probability that a student belongs to the "High Fitness" cohort. The model offers poor explanatory power (McFadden's $R^2 = 0.003$, $AUC = 0.542$). According to this model, an increase by one standard deviation in a student's overall score is associated with a 1.14-fold (14%) increase in the odds that the student is in the "High Fitness" cohort. The associated 95% confidence interval is [1.01, 1.28]. 
+
+With each standard included separately, the model is similarly poor-fitting (McFadden's $R^2 = 0.009$, $AUC = 0.570$). Standard 2 and Standard 3 had significant ($p<0.05, p<0.01$, respectively) positive associations with the probability of belonging to the "High Fitness" cohort. Standard 4 is also significant $(p<0.05)$, but the relationship is negative. This result is surprising, but should be viewed with the context of poor overall model fit.
+
+When demographic variables are added, the resulting models had substantially improved fits (McFadden's $R^2 = 0.039$, $AUC = 0.635$), consistent with expectations. Overall score had its significance level attenuated $(p<0.1)$. Standard 2 maintained the same level of significance $(p<0.05)$, Standard 3 saw its significance attenuated $(p<0.1)$, and while Standard 4 maintained a negative coefficient, the relationship is not significant. According to the model that includes covariates and scores by standard, an increase by one standard deviation in a student's score on Standard 2 is associated with a 1.23-fold increase in the odds that a student belongs to the "High Fitness" cohort. The associated 95% confidence interval for the odds ratio is [1.04, 1.46].
+
+```{r, results='asis',echo=FALSE,warning=FALSE,message=FALSE}
+ipe_data_3 <- ipe_data %>% filter(!is.na(Strength_Days) & !is.na(`PA Minutes per day`))
+fm1 <- glm(meets_standards ~ overall_pct_std, family = "binomial", data = ipe_data_3)
+fm2 <- glm(meets_standards ~ s2_pct_std + s3_pct_std + s4_pct_std, family = "binomial", data = ipe_data_3)
+fm3 <- glm(meets_standards ~ overall_pct_std + Sex + poverty + race_2 + Latino_YN, family = "binomial", data = ipe_data_3)
+fm4 <- glm(meets_standards ~ s2_pct_std + s3_pct_std + s4_pct_std + Sex + poverty + race_2 + Latino_YN, family = "binomial", data = ipe_data_3)
+
+#performance::check_overdispersion(fm4)
+#roc(ipe_data_2$active_daily, lgm1$fitted.values, plot = TRUE)
+#pR2(fm1)
+#pR2(fm2)
+#pR2(fm3)
+#pR2(fm4)
+#roc(fm4$y, fm4$fitted.values, plot = TRUE)
+
+stargazer(fm1, fm2, fm3, fm4,
+          type = "latex",
+          title = "Logistic Regression: Fitness Cohort",
+          dep.var.labels = "Meets Fitness Recommendations",
+          covariate.labels = c("Overall Score", "Standard 2", "Standard 3", "Standard 4", "Sex", "Mid-Low Poverty", "Mid-High Poverty", "Other Race", "Unknown Race", "White", "Latino"),
+          p.auto = FALSE,
+          header = FALSE,
+          column.labels = c("Overall", "Standards", "Overall and Covariates", "Standards and Covariates"),
+          add.lines = list(
+            c("McFadden's R²", "0.003", "0.009", "0.036", "0.039"),
+            c("AUC", "0.542", "0.570", "0.624", "0.635")),
+          notes = "Standard errors in parentheses."
+          )
+
+```

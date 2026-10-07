@@ -1,0 +1,28 @@
+# macOS
+.DS_Store
+
+# Quarto generated files
+.quarto/
+_freeze/
+_book/
+_output/
+_manuscript/
+
+# Rendered HTML and associated assets
+*.html
+*_files/
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Temporary files
+*.tmp
+*.log
+
+# Probably shouldn't upload this
+Full Data iPE.Standards Prioritization.UNH.xlsx

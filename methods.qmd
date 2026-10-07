@@ -1,0 +1,69 @@
+---
+title: "Methods"
+---
+
+```{r, include = FALSE, message = FALSE, warning = FALSE, echo = FALSE}
+source('data_setup.R')
+```
+
+## Study Design and Setting
+This study utilized a cross-sectional survey dataset collected from secondary schools in Indiana. The survey was administered to a total of 1,504 students from 19 classrooms across 9 schools during the 2018-2019 school year. Accordingly, the data has a hierarchical structure, with students belonging to classrooms within schools.
+
+## Description of Data Sources
+The physical activity behavior data were drawn from the Youth Risk Behavior Survey (YRBS), which is developed and maintained by the CDC. The YRBS is part of the Youth Risk Behavior Surveillance System (YRBSS), the largest public health surveillance system in the United States, designed to monitor health risk behaviors contributing to the leading causes of mortality, morbidity, and social problems among our youth. The survey is self-administered and designed to be completed in approximately one class period (45 minutes) [@underwood2020].
+
+The dataset includes a 39-item assessment of students' PE knowledge (see Appendix A), as well as their self-reported physical behavior outcomes from the YRBS survey. The knowledge assessment items were originally developed under the 2004 SHAPE National Standards framework, which included 6 standards, and were subsequently mapped onto the three knowledge-based standards (Standards 2, 3 and 4) of the current four-standard framework. Student learning outcomes of the original 6-standard framework were cross-checked with the current 4-standard framework, and assigned to the appropriate new umbrella standard.
+
+## Variable Construction
+
+### Independent Variables
+Of the 39 assessment items, 21 corresponded to Standard 2 (fitness knowledge), 4 to Standard 3 (social skills), and 14 to Standard 4 (personal identity/values). Raw scores for each cluster were aggregated into percentage-correct variables, which were then normalized (mean=0, sd=1). Standard 1 corresponds to motor skill development, and thus is not appropriately measured by a written assessment.
+
+### Dependent Variables
+We used three self-reported behavioral outcome metrics derived from the YRBS:
+
+Physical Activity (PA) Minutes per Day: Students were asked to report their average daily minutes of physical activity as belonging to one of four categories. These categories included 0-20 minutes, 20-40 minutes, 40-60 minutes, and 60+ minutes.
+
+Physical Activity (PA) Days per Week: Students reported the number of days per week that they were physically active for at least 60 minutes. Responses ranged from 0 to 7 days. 
+
+Fitness Cohort: Students were separated into three "fitness cohorts," based on both PA minutes per day, as well as the average number of days that they reported training physical strength (0-7). The "High Fitness" cohort was comprised of students meeting the recommendation of 60+ PA minutes per day, as well as 3+ days of strength training per week. The "Low Fitness" cohort included students that reported 0-20 PA minutes per day and less than 2 days of strength training per week. The "Medium Fitness" category included all students not meeting the High or Low criteria.
+
+## Missing Data
+A small number of observations were missing values for dependent variables, including 6 for PA Days per Week, 3 for PA Minutes per Day, and 2 for Strength Days. These observations were excluded from their respective models during analysis.
+
+## Modeling
+To examine the relationship between PE test scores and physical activity, three distinct regression techniques were used, one for each dependent variable. All analyses were conducted in R. 
+
+Exploratory data analysis revealed that test scores increased significantly from the lowest activity category (0-20 minutes) to the second-lowest (20-40 minutes), but scores plateaued after increasing to higher activity categories. As a result, PA Minutes per Day was dichotomized into a binary variable indicating whether or not a student fell above or below the 20-minute threshold, and a logistic regression was fit to model the relationship between assessment scores and sedentary behavior.
+
+PA Days per week was modeled using a binomial regression, as it can be interpreted as a count of successes (days physically active) out of fixed trials (7 days in a week).
+
+The Fitness Cohort variable was dichotomized into a binary variable due to the relatively low sample size of the "Low Fitness" cohort (n=74). The resulting variable indicates whether or not a student met the physical activity recommendations of the "High Fitness" cohort, and this relationship was modeled using a logistic regression.
+
+Each model was additionally fit with demographic covariates, including grade, sex, race, and socioeconomic status, to examine whether the relationship between assessment scores and physical activity persisted after the adjustment.
+
+### Evaluation of Alternative Models
+PA Days per Week has often been modeled using Poisson regression [@borges2015;@slymen2006]. Those cases were typically zero-inflated, with observations taking values near the maximum being exceedingly rare. The mean and variance of PA Days, as well as the shape of the distribution, are not well approximated by a Poisson distribution, and thus the Poisson regression model was rejected.
+
+Due to the nested structure of the data, a mixed-effects model was considered. It stands to reason that students that belong to the same classroom and the same school should not be viewed as independent observations. A preliminary mixed-effects model was fitted, and yielded an intra-class correlation coeﬀicient of 0.026. This indicated that a negligible amount of the variation in physical activity was attributable to the classroom/school grouping. A visual inspection of physical activity distributions by classroom and school (see Figure 3.1) also does not show any discernible pattern, and thus a mixed-effects model was rejected.
+
+```{r mm_rejection, echo=FALSE, warning=FALSE}
+#| fig-cap: "Distribution of PA Days by Classroom and School"
+
+ipe_data %>%
+  mutate(School_Label = factor(School_Label, c("1", "2", "3", "4", "5", "6", "7", "8", "9"))) %>%
+  ggplot(aes(Teacher_Label, PA_Days, color = School_Label)) +
+  geom_boxplot() +
+  coord_flip() +
+  scale_color_manual(values = c("#E64B35", "#4DBBD5", "#00A087", 
+                               "#3C5488", "#F39B7F", "#8491B4",
+                               "#91D1C2", "#DC0000", "#7E6148")) +
+  labs(x = "Classroom",
+       y = "PA Days per Week",
+       color = "School") +
+  theme_bw() +
+  theme(text = element_text(family = "serif"),
+        plot.title = element_text(hjust = 0.5, face = "bold"))
+```
+
+

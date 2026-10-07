@@ -1,0 +1,333 @@
+---
+title: "Appendix"
+---
+
+```{r, include = FALSE, message = FALSE, warning = FALSE, echo = FALSE}
+source('data_setup.R')
+```
+
+## Appendix A: PE Knowledge Assessment Items
+
+The following 39 items comprise the PE knowledge assessment, organized by SHAPE National Standard.
+
+### Standard 2
+
+S2 Analyzes physical development across the lifespan that influences physical activity choices
+
+S2PT1.	Which of the following is the most accurate statement about physical activity levels?
+A.  If children are not physically active, they won’t be physically active when       they are adults.
+B.  Physical activity patterns stay the same as people age.
+C.  Children and older adults are not that physically active.
+D.  Physical activity patterns change as people age.
+
+S2PT2.	Tommy’s grandmother played basketball while growing up and still rides a bike and walks regularly.  All of the following are benefits that Tommy’s grandmother could realize from physical activity, except:
+A.  She sleeps better.
+B.  She strengthened her bones to help resist osteoporosis. 
+C.  She has sore muscles.  
+D.  She has stronger heart and lungs.
+
+S2PT3.	Mohammad is ahead of his peers in terms of motor skill development, which may be because of more:
+A.  Maturity and practice.
+B.  Instruction and speed.
+C.  Practice, instruction and body size.
+D.  Instruction, practice and maturity.
+
+S2PT4.	As you continue to mature, which of the following is most likely to happen?
+A.  I will get faster and stronger as I grow older, and that affects my skills.
+	B.  My skills will stay the same if I continue to practice.
+	C.  My skills in most activities will increase if I practice.
+	D.  My skills will be better immediately.
+
+
+### Standard 3
+
+S3 Implements a personal physical activity plan that is part of a healthful lifestyle
+
+S2PT5.   A pedometer is usually used to record how physically active you are by: 
+	•	Recording your peddling action while you ride your bike.
+	•	Measuring your average heart rate while you walk.
+	•	Counting the number of steps you take during physical activity.
+	•	Recording the number of physical activities in which you participate weekly.
+
+
+S3PT6.   You should choose activities for your personal physical activity plan that: 
+	•	You can fit into your schedule.  
+	•	You can perform with enjoyment.
+	•	Your friends enjoy doing. 
+	•	Are provided by your local recreation program.
+
+Employs self-management skills to maintain a physically active life
+
+S3PT7.   Which of the following are benefits of being physically fit?
+	•	Decreased heart rate and appetite. 
+	•	Improved self-esteem and reduced stress. 
+	•	Increased resting heart rate and lowered stress.
+	•	More energy and less need for sleep.
+
+S3PT8.   A physically active person accumulates up to 60 minutes a day of moderate-to-      vigorous physical activity. Which of the following best describes a “physically       active lifestyle?” 
+	•	Walks to school, mows grass and rakes leaves, cleans house, completes a personal fitness workout 5 to 6 days a week, plays on the school tennis team.
+	•	Rides the bus to school, participates in PE class 2 days a week, works at the local grocery store stocking shelves on weekends.
+	•	Completes homework each day, completes chores at home, practices daily with the marching band at school, walks to school.
+	•	Participates in a bowling league 1 to 2 days a week, volunteers at the community library restocking books 2 to 3 days a week, runs a mile 3 days a week.  
+
+S3PT9.    Which of the following plans demonstrates the most physically active lifestyle?
+	•	Work out at the local fitness center at least 3 days a week. 
+	•	Swim or play soccer or tennis for 60 minutes at least 5 days a week.
+	•	Run a mile at least 2 days a week.
+	•	Perform a weight-lifting program at least 3 days a week.
+
+S3PT10.    Which group of activities would most likely help to improve all components of         health-related physical fitness if added to your personal physical activity plan?
+	•	Biking, volleyball, swimming.
+	•	Soccer, basketball, softball.
+	•	Gymnastics, running, bowling. 
+	•	Yoga, weight lifting, running.
+
+Achieves levels of health-related criterion referenced standards for fitness. 
+
+S3PT11.    The percentages of fat, muscle, bone and water in the body are fitness components         called:  
+	•	Weight management. 
+	•	Nutritional balance. 
+	•	Body composition.
+	•	Physical structure.
+
+S3PT12.   Running for distance or time can be used to measure:   
+	•	Flexibility.
+	•	Aerobic endurance.
+	•	Distance capacity.
+	•	Muscle strength.
+
+Demonstrates the skill, knowledge and desire to monitor and adjust activity levels to meet personal fitness needs.
+
+S3PT13.    You can increase the intensity of your workout by:  
+	•	Increasing distance & speed.
+	•	Decreasing speed & distance.
+	•	Increasing time & decreasing distance. 
+	•	Increasing time & decreasing repetitions.
+
+S3PT14.    In the FITT guidelines, “frequency” refers to:
+	•	How long you exercise.
+	•	How much time you allow between repetitions. 
+	•	How often you exercise.
+	•	The number of weeks in a workout plan.
+
+S3PT15.   When you reach your initial goal for improved physical fitness, you should apply the          principle of “progression” to safely adjust your work-out plan to continue fitness          improvement by:
+	•	Increasing the intensity of your workout.
+	•	Increasing the number of “no-workout” days per week.
+	•	Keeping your workout the same.
+	•	Work out at a lower level of intensity.
+
+S3PT16.    The type of activities to improve aerobic endurance must be able to ________          throughout the activity.
+	•	Keep the heart rate at the target heart rate level.
+	•	Keep the heart rate at a resting level.
+	•	Change the heart rate.
+	•	Allow the heart rate to recover.
+
+S3PT17.   My goal is to lose weight safely and decrease my percentage of body fat in the next   four weeks by ___________.
+	•	Walking daily, reducing water consumption, eating more whole grain bread and eliminating fatty foods.
+	•	Walking 30 minutes daily, eating more fruit and vegetables, and consuming more water and fewer calories.
+	•	Jogging every other day, avoiding meat and bread, eating more fruit, and drinking 8 glasses of water each day. 
+	•	Walking 3 times per week, cutting my calorie intake by 25 percent, eating more protein, and increasing my water intake daily.
+
+S3PT18.    My goal is to complete the mile run without stopping to rest by doing the following          for four weeks:
+	•	Alternately run and walk at least 5 days a week, increasing the distance I run gradually.
+	•	Walk briskly for 1¼ miles at least 5 days a week. 
+	•	Alternately run and walk at least every other day.
+	•	Walk 1 mile briskly 3 days the first week and add ½ mile each week after that.
+
+S3PT19.    When planning your exercise program, you should start by:
+	•	Using a plan of physical fitness activities based on nationally set goals.
+	•	Keeping a log of your participation in all physical activities.
+	•	Reviewing your personal fitness test scores and setting personal fitness goals.
+	•	Deciding how much time you have to exercise.
+
+S3PT20.   When the length of a run is changed from 1 mile to 1¼ miles, what principle is          being applied?
+	•	Intensity. 
+	•	Specificity.
+	•	Frequency.
+	•	Progression.
+
+S3PT21.    When adjusting your workout to increase flexibility, stretch each muscle group          beyond the distance required by your normal activities and until:
+	•	You cannot stand the pain.
+	•	The muscle becomes tight without painful discomfort.
+	•	You reach the recommended distance for your age group.
+	•	Your reach your long-term goal distance.
+
+S3PT22.    A personal fitness workout plan for improving total health-related fitness should    include goals based on:  
+	•	Personal evaluation, with specific activities to address body composition.
+	•	Published charts of expectations for a person of your height and weight, with specific activities to address all fitness components. 
+	•	Personal test results, specific activities to address each component, and realistic expectations. 
+	•	Personal test results and desired achievement of specific sports skills.
+
+Scenario: Goal-Setting. Use to answer questions 21 & 22.
+
+Jamal wants to set up a fitness plan that will improve his fitness levels. He is 15 years old and is in high school.  He appears to be healthy but is overweight.  Below are his pre-test scores and goals for his fitness plan.  Read the goals and answer the questions below.
+
+Jamal’s Goals for September through January 31.
+
+Fitness Component
+Pre-Test
+Goal
+Muscle endurance
+Push-ups = 1
+3
+
+Curl-ups = 12
+20+
+Body composition
+32% body fat
+32% body fat or less
+Aerobic endurance
+22-minute mile
+18-minute mile
+
+
+
+
+S3PT23.   Jamal has set a goal for improving his push-up score. Which of the following work-        out plans is most likely to help him reach his goal?
+	•	Complete 3 sets of up to 10 modified push-ups each, with hands on a table and feet on the floor, every other day for 3 weeks. 
+	•	Complete 3 sets of up to 10 modified push-ups each, with hands on a table and feet on the floor, at least 2 days a week for 3 weeks.
+	•	Complete 3 sets of up to 10 modified push-ups each, with hands on a table and feet on the floor, at least once a week for 3 weeks. 
+	•	Complete as many push-ups as you can 3 days a week for 3 weeks.  
+
+S3PT24.    Jamal has set a goal of improving his curl-up score by completing 3 sets of up to 10          curl-ups each, every other day for 3 weeks.  If he reaches his goal of 20 curl-ups          without rest, Jamal should adjust the goal and continue the workout for 3 more          weeks, but:
+	•	Increase the number of repetitions to up to 15 in each set. 
+	•	Keep the number of repetitions in each set the same. 
+	•	Decrease the number of repetitions and increase the number of sets in each workout.
+	•	Complete as many curl-ups as possible in each workout.
+
+S3PT25.    When designing a conditioning program to improve health-related fitness, you          should first look at your current fitness test scores to determine realistic goals          around which to create a workout plan.  Which set of guidelines must you consider          for each of the activities/exercises in the daily plan?
+	•	Frequency, intensity, time and specific type of exercise needed to address each health-related fitness component.
+	•	Personal needs for sleeping, studying, working and eating.
+	•	Your physical activity level and interests.
+	•	Nutrition needs and eating habits.
+
+
+
+
+
+
+Applies problem-solving techniques. 
+
+S3PT26.   If Matt has the solution to a problem that his group is trying to answer, he should:
+    	A.  Tell the group the answer quickly so that it can be implemented quickly.
+    	B.  Become the group leader and guide group members to complete the task using       his solution.
+C.  Present his idea to the group and ask for alternative ideas.
+    	D.  Task group members with solving the problem consistent with his solution.
+
+S3PT27. 	How should Samantha act when the official makes a call with which she disagrees?
+    		A.  Let everyone know that it was a bad call.
+    		B.  Accept the official’s call and play by the spirit of the game.
+    		C.  Point out the mistake to the official.
+    		D.  Wait until after the game and then tell the official that it was a bad call.
+
+
+Demonstrates responsibility for following safe practices, rules, procedures and etiquette in physical activity settings.
+
+S3PT28.   What should you do if an opponent drops his/her racket accidentally during a competitive net game and he/she cannot play the point?
+    A.  Offer to replay the point. 
+    B.  Continue to play.
+    C.  Stop play and give yourself a point. 
+    D.  Declare that dropping a racket is a safety violation, which makes you the winner. 
+
+Exhibits supportive behavior. 
+
+S3PT29.   Good sportsmanship means that, when you win a game, you should:       
+    	A.  Not say or do anything.
+    	B.  Thank the opposing team for a good game.
+    	C.  Congratulate your teammates.
+    	D.  Celebrate your win enthusiastically
+
+
+### Standard 4
+
+Recognizes the different benefits associated with participation in various types of physical activities
+
+S4PT30.   Of the following activities that Kaitlin enjoys regularly, which should she select if she wants the most fitness benefit? 
+    	A.  Lap swimming.
+    	B.  Tai chi.
+    	C.  Walking.
+    	D.  Volleyball.
+
+ S4PT31.   Charice wants to increase her participation in physical activity so that she is active every day.  What criteria should she use for selecting an activity?
+    	A. Select the activity that her friends say they like to do.
+    	B. Select an activity that she doesn't know how to do.
+    	C. Select an activity that is enjoyable to her.
+    	D. Select the most popular activity among classmates.
+	
+S4PT32.   Which would best serve to help Carla improve or maintain her flexibility?
+    	A.  Weight training.    
+    	B.  Curl-ups.
+    	C.  Line dancing.
+    	D.  Gymnastics.
+
+S4PT33.   Devin’s doctor has warned him of the risk factors associated with his obesity and has recommended that he improve his cardiorespiratory fitness.  Devin should begin by:
+    	A.  Taking a brisk evening walk every day.
+    	B.  Jogging every day for 30 minutes. 
+    	C.  Completing 3 to 4 sprints down the football field 3 times a week.
+    	D.  Jogging three times a week for 30 minutes. 
+
+S4PT34.  Which one of the following lifestyle changes to improve physical activity doesn’t require much effort and could improve your health?
+    	A.  Taking the stairs instead of the elevator.    
+    	B.  Playing basketball at a local community league.   
+    	C.  Organizing a group to go on a backpacking trip.
+    	D.  Working out to an exercise video every morning before going to school.
+
+Recognizes the attraction of participation in various physical activities.
+
+S4PT35.   Tara’s favorite physical activity is mountain biking. She might enjoy that activity most because:
+A.  She enjoys a challenge and being outdoors.
+    	B.  It requires inexpensive equipment.
+C.  She can do it anywhere.
+D.  She is not skilled at most other activities.
+
+S4PT36.   Your friend is not very active.  How can you best encourage him to start exercising?
+    	A.  Invite him to join you in an enjoyable activity. 
+    	B.  Show him a list of those activities that you believe are fun and challenging.
+    	C.  Encourage him to seek the advice of athletes.
+    	D.  Give him a handout from class on the benefits of being active. 
+
+S4PT37.   Students who are physically active and watch what they eat usually:
+A.  Earn better grades in school.
+   	B.  Are not well liked by other students.
+   	C.  Are healthier.
+   	D.  Don’t have a lot of free time.
+
+S4PT38.  A good choice of physical activity for a person who wants to be physically active but hates sports that include running would be: 
+   		A.  Jogging.
+   		B.  Dance.
+   		C.  Soccer.
+   		D.  Wii sports.
+
+S4PT39.   Other than health benefits, why would Carli value rock climbing, mountain biking and kayaking?
+    	A.  Social interaction.
+B.  The challenge.
+C.  Self-expression.
+    	D.  Cooperation.
+
+
+## Appendix B: Grade and Race Distribution Tables
+
+```{r, echo=FALSE}
+ipe_data %>%
+  mutate(Grade = ifelse(Grade == 0 | is.na(Grade), "Not Reported", as.character(Grade))) %>%
+  group_by(Grade) %>%
+  summarize(Count = n())%>%
+  mutate(Percentage = round(Count/nrow(ipe_data),3)) %>%
+  arrange(factor(Grade, levels = c("9", "10", "11", "12", "Not Reported"))) %>%
+  kable(col.names = c("Grade", "n", "%"), 
+        caption = "Grade Distribution",
+        booktabs = TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "striped"))
+
+ipe_data %>%
+  group_by(race_2) %>%
+  mutate(race_2 = str_to_title(race_2)) %>%
+  summarize(Count = n()) %>%
+  mutate(Percentage = round(Count/nrow(ipe_data),3)) %>%
+  arrange(factor(race_2, levels = c("White", "Black", "Other", "Unknown"))) %>%
+  kable(col.names = c("Race", "n", "%"), 
+        caption = "Race Distribution",
+        booktabs = TRUE) %>%
+  kable_styling(latex_options = c("hold_position", "striped"))
+```
+

@@ -1,0 +1,15 @@
+---
+title: "Introduction"
+---
+## SHAPE Standards Framework
+Physical education (PE) programs play an important role in promoting the physical health and activity levels of children across the United States. To provide structure for this mission, the Society of Health and Physical Educators (SHAPE) established four national standards to guide educators in their provision of holistic PE programming. These standards organize physical literacy into four categories: (1) motor skill development, (2) the application of movement and fitness knowledge, (3) the development of social skills through movement, and (4) the development of personal identity through movement [@shape2024].
+
+## The Evidence Gap
+
+Despite the existence of these standards, current PE programming relies heavily on historical traditions, anecdotal assumptions, and personal preferences of individual instructors rather than large-scale empirical evidence [@richards2014]. This lack of evidence contributes to the inconsistency across programs, and may limit their effectiveness in promoting physical activity in students. It is widely acknowledged that there are too many standards and that programs should be prioritized based on teacher philosophy, program foci, and student/community interests [@lund2015]. Meanwhile, national surveillance data continue to highlight a concerning trend in sedentary behavior among children [@pfledderer2025; @tremblay2011]. Large-scale, standards-based research has the potential to identify which aspects of PE are associated with positive behavioral outcomes, and inform curriculum design as educators work to improve the physical health of their students. 
+
+
+## Purpose of Study
+
+This study serves as a proof-of-concept for the potential of standards-based surveillance data in providing an empirical framework for PE programming. Leveraging a unique dataset that contains validated SHAPE standards-based assessment items and Youth Risk Behavior Surveillance (YRBS) self-report measures, we examine how PE knowledge standards relate to self-reported physical activity and fitness levels. Findings from this pilot are intended to motivate larger-scale, more representative research that can ultimately support data-driven curriculum design.
+
