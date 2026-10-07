@@ -4,7 +4,7 @@
 # Quarto generated files
 .quarto/
 _freeze/
-_book/
+_book/*
 !_book/Physical-Education-Knowledge-and-Self-Reported-Behavioral-Outcomes.pdf
 _output/
 _manuscript/
